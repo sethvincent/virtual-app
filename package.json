@@ -9,7 +9,7 @@
     "start": "budo example.js --live"
   },
   "author": "sethvincent <sethvincent@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "store-emitter": "^1.1.1",
     "virtual-dom": "^2.1.1",

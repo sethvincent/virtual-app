@@ -10,7 +10,7 @@ You could definitely use virtual-dom, virtual-raf, and store-emitter separately 
 
 ## Install
 
-    npm install --save sethvincent/virtual-app
+    npm install --save virtual-app
 
 ## Example
 

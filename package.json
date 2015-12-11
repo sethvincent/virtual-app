@@ -1,6 +1,6 @@
 {
   "name": "virtual-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A wrapper around [virtual-dom](https://npmjs.com/virtual-dom), [virtual-raf](https://npmjs.com/virtual-raf), & [store-emitter](https://npmjs.com/store-emitter) that provides redux-like, unidirectional state management paired with virtual-dom.",
   "main": "index.js",
   "scripts": {

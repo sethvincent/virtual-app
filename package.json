@@ -1,7 +1,7 @@
 {
   "name": "virtual-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "A wrapper around [virtual-dom](https://npmjs.com/virtual-dom), [virtual-raf](https://npmjs.com/virtual-raf), & [store-emitter](https://npmjs.com/store-emitter) that provides redux-like, unidirectional state management paired with virtual-dom.",
   "main": "index.js",
   "scripts": {
     "build-docs": "documentation-readme -s 'API'",
@@ -23,5 +23,22 @@
     "tap-spec": "^4.1.1",
     "tape": "^4.2.2",
     "xtend": "^4.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sethvincent/virtual-app.git"
+  },
+  "keywords": [
+    "virtual-dom",
+    "dom",
+    "virtual",
+    "dom",
+    "redux",
+    "state",
+    "unidirectional"
+  ],
+  "bugs": {
+    "url": "https://github.com/sethvincent/virtual-app/issues"
+  },
+  "homepage": "https://github.com/sethvincent/virtual-app#readme"
 }

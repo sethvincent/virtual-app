@@ -5,7 +5,7 @@ var createStore = require('store-emitter')
 * Create the app.
 * @name createVirtualApp
 * @param {Object} container – DOM element that will act as parent element
-* @param {Object} virtualDom – the full virtual-dom module returned by `require('virtual-dom')`
+* @param {Object} vdom – the full virtual-dom module returned by `require('virtual-dom')`
 * @example
 * var createVirtualApp = require('virtual-app')
 *
@@ -65,6 +65,12 @@ module.exports = function createVirtualApp (container, vdom) {
     * Render the application. This function is returned by the `app.start()` method.
     * @name render
     * @param {Function} callback – define the virtual tree of your application and return it from this callback
+    * @example
+    * var render = app.start(modifier, { food: 'pizza' })
+    *
+    * render(function (state) {
+    *   return app.h('h1', state.food)
+    * })
     */
     return function render (callback) {
       app.tree = loop(initialState, callback.bind(app), vdom)

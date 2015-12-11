@@ -166,8 +166,7 @@ Create the app.
 **Parameters**
 
 -   `container` **Object** – DOM element that will act as parent element
--   `virtualDom` **Object** – the full virtual-dom module returned by `require('virtual-dom')`
--   `vdom`  
+-   `vdom` **Object** – the full virtual-dom module returned by `require('virtual-dom')`
 
 **Examples**
 
@@ -184,6 +183,16 @@ Render the application. This function is returned by the `app.start()` method.
 **Parameters**
 
 -   `callback` **Function** – define the virtual tree of your application and return it from this callback
+
+**Examples**
+
+```javascript
+var render = app.start(modifier, { food: 'pizza' })
+
+render(function (state) {
+  return app.h('h1', state.food)
+})
+```
 
 ## License
 

@@ -6,6 +6,8 @@ A wrapper around [virtual-dom](https://npmjs.com/virtual-dom), [virtual-raf](htt
 
 I keep writing essentially this module with each new project I build that uses virtual-dom.
 
+You could definitely use virtual-dom, virtual-raf, and store-emitter separately (and switch them out for other modules) if this doesn't fit your needs exactly.
+
 ## Install
 
     npm install --save sethvincent/virtual-app

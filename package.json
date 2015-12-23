@@ -1,6 +1,6 @@
 {
   "name": "virtual-app",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "A wrapper around [virtual-dom](https://npmjs.com/virtual-dom), [virtual-raf](https://npmjs.com/virtual-raf), & [store-emitter](https://npmjs.com/store-emitter) that provides redux-like, unidirectional state management paired with virtual-dom.",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   "author": "sethvincent <sethvincent@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "store-emitter": "^1.1.1",
+    "store-emitter": "^2.0.0",
     "virtual-dom": "^2.1.1",
     "virtual-raf": "^2.0.3"
   },

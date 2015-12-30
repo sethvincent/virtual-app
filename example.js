@@ -1,6 +1,7 @@
 var extend = require('xtend')
 var vdom = require('virtual-dom')
 var createApp = require('./index')
+var h = vdom.h
 
 /*
 * create the app passing the container element and virtual-dom
@@ -31,7 +32,17 @@ var render = app.start(modifier, {
 * return the tree of your app for rendering
 */
 render(function (state) {
-  return app.h('h1', state.title)
+  return h('.app', [
+    h('h1', state.title),
+    h('label', 'Write a new title: '),
+    h('input', {
+      type: 'text',
+      placeholder: state.title,
+      oninput: function (e) {
+        app.store({ type: 'title', title: e.target.value })
+      }
+    })
+  ])
 })
 
 /*

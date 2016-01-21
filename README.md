@@ -20,7 +20,7 @@ var vdom = require('virtual-dom')
 var createApp = require('virtual-app')
 
 /*
-* create the app passing the container element and virtual-dom 
+* create the app passing the container element and virtual-dom
 */
 var app = createApp(document.body, vdom)
 
@@ -89,9 +89,9 @@ virtual-dom `h` function.
 
 **Parameters**
 
--   `selector`  
--   `options`  
--   `children`  
+-   `selector`
+-   `options`
+-   `children`
 
 ### app.on
 
@@ -147,7 +147,7 @@ Trigger an event that gets passed through the modifier function to change the st
 
 **Parameters**
 
--   `action` **Object** 
+-   `action` **Object**
     -   `action.type` **String** – an identifier for the type of the action
 
 **Examples**
@@ -157,6 +157,13 @@ app.store({
   type: 'example'
   example: true
 })
+```
+
+### app.send
+
+Bind an event to a component. Convenience wrapper around `app.store`.
+```js
+app.h('button', { onclick: app.send({ type: 'increment' })}, 'click me')
 ```
 
 ### createVirtualApp

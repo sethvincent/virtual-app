@@ -104,5 +104,15 @@ module.exports = function createVirtualApp (container, vdom) {
     return vdom.h(selector, options, children)
   }
 
+  /**
+  * Event binding thunk
+  * @name app.send
+  */
+  app.send = function virtualApp_send (event) {
+    return function virtualApp_send_thunk () {
+      app.store(event)
+    }
+  }
+
   return app
 }

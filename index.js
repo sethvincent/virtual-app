@@ -105,12 +105,16 @@ module.exports = function createVirtualApp (container, vdom) {
   }
 
   /**
-  * Event binding thunk
+  * Bind an event to a component. Convenience wrapper around `app.store`.
   * @name app.send
+  * @param {Object} action
+  * @param {String} action.type – an identifier for the type of the action
+  * @example
+  * app.h('button', { onclick: app.send({ type: 'increment' })}, 'click me')
   */
-  app.send = function virtualApp_send (event) {
+  app.send = function virtualApp_send (action) {
     return function virtualApp_send_thunk () {
-      app.store(event)
+      app.store(action)
     }
   }
 

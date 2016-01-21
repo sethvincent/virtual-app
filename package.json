@@ -13,7 +13,7 @@
   "dependencies": {
     "store-emitter": "^2.0.0",
     "virtual-dom": "^2.1.1",
-    "virtual-raf": "^2.0.3"
+    "virtual-raf": "^3.0.0"
   },
   "devDependencies": {
     "budo": "^7.0.2",

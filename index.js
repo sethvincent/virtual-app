@@ -74,7 +74,7 @@ module.exports = function createVirtualApp (container, vdom) {
     */
     return function render (callback) {
       app.tree = loop(initialState, callback.bind(app), vdom)
-      app.container.appendChild(app.tree())
+      app.container.appendChild(app.tree.render())
 
       app.store.on('*', function (action, state) {
         app.tree.update(state)

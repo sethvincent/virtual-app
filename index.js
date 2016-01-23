@@ -110,11 +110,14 @@ module.exports = function createVirtualApp (container, vdom) {
   * @name app.send
   * @param {Object} action
   * @param {String} action.type – an identifier for the type of the action
+  * @param {String} action.flag – call preventDefault on event (default: true)
   * @example
   * app.h('button', { onclick: app.send({ type: 'increment' })}, 'click me')
   */
-  app.send = function virtualApp_send (action) {
-    return function virtualApp_send_thunk () {
+  app.send = function virtualApp_send (action, flag) {
+    if (typeof flag === undefined) flag = true
+    return function virtualApp_send_thunk (e) {
+      if (flag && e && e.preventDefault) e.preventDefault()
       app.store(action)
     }
   }

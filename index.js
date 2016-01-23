@@ -1,5 +1,6 @@
 var loop = require('virtual-raf')
 var createStore = require('store-emitter')
+var assert = require('assert')
 
 /**
 * Create the app.
@@ -12,8 +13,8 @@ var createStore = require('store-emitter')
 * var app = require(document.body, require('virtual-dom'))
 */
 module.exports = function createVirtualApp (container, vdom) {
-  if (!container) throw new Error('container and virtual-dom arguments required')
-  if (!vdom) throw new Error('virtual-dom argument is required')
+  assert.equal(typeof container, 'object', 'container must be an object')
+  assert.equal(typeof vdom, 'object', 'vdom must be an object')
 
   var app = {
     container: container,
@@ -45,8 +46,8 @@ module.exports = function createVirtualApp (container, vdom) {
   * })
   */
   app.start = function virtualApp_start (modifier, initialState) {
-    if (!modifier) throw new Error('modifier and initialState arguments required')
-    if (!initialState) throw new Error('initialState argument is required')
+    assert.equal(typeof modifier, 'function', 'modifier must be a function')
+    assert.equal(typeof initialState, 'object', 'initialState must be an object')
 
     /**
     * Trigger an event that gets passed through the modifier function to change the state. A `type` property is required. You can add any other arbitrary properties.

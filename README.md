@@ -118,8 +118,7 @@ Bind an event to a component. Convenience wrapper around `app.store`.
 
 -   `action` **Object** 
     -   `action.type` **String** – an identifier for the type of the action
-    -   `action.flag` **String** – call preventDefault on event (default: true)
--   `flag`  
+-   `flag` **String** – call preventDefault on event (default: true)
 
 **Examples**
 

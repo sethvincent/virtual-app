@@ -189,7 +189,7 @@ Create the app.
 ```javascript
 var createVirtualApp = require('virtual-app')
 
-var app = require(document.body, require('virtual-dom'))
+var app = createVirtualApp(document.body, require('virtual-dom'))
 ```
 
 ### render

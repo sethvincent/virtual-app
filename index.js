@@ -10,7 +10,7 @@ var assert = require('assert')
 * @example
 * var createVirtualApp = require('virtual-app')
 *
-* var app = require(document.body, require('virtual-dom'))
+* var app = createVirtualApp(document.body, require('virtual-dom'))
 */
 module.exports = function createVirtualApp (container, vdom) {
   assert.equal(typeof container, 'object', 'container must be an object')

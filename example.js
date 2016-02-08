@@ -6,7 +6,7 @@ var h = vdom.h
 /*
 * create the app passing the container element and virtual-dom
 */
-var app = createApp(document.body, vdom)
+var app = createApp(vdom)
 
 /*
 * The only way to modify state is to trigger an action
@@ -31,7 +31,7 @@ var render = app.start(modifier, {
 /*
 * return the tree of your app for rendering
 */
-render(function (state) {
+var domTree = render(function (state) {
   return h('.app', [
     h('h1', state.title),
     h('label', 'Write a new title: '),
@@ -73,3 +73,5 @@ app.store({
   type: 'title',
   title: 'awesome example'
 })
+
+document.body.appendChild(domTree)

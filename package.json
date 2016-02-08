@@ -9,20 +9,22 @@
     "start": "budo example.js --live"
   },
   "author": "sethvincent <sethvincent@gmail.com>",
+  "contributors": [
+    "benjaminverble <bvrider@gmail.com>",
+    "yoshuawuyts <yoshuawuyts@gmail.com>"
+  ],
   "license": "MIT",
   "dependencies": {
     "store-emitter": "^2.0.0",
     "virtual-dom": "^2.1.1",
-    "virtual-raf": "^3.0.0"
+    "virtual-raf": "^3.0.0",
+    "xtend": "^4.0.1"
   },
   "devDependencies": {
-    "budo": "^7.0.2",
     "documentation-readme": "^2.1.1",
-    "global": "^4.3.0",
     "standard": "^5.4.1",
     "tap-spec": "^4.1.1",
-    "tape": "^4.2.2",
-    "xtend": "^4.0.1"
+    "tape": "^4.2.2"
   },
   "repository": {
     "type": "git",
@@ -35,7 +37,8 @@
     "dom",
     "redux",
     "state",
-    "unidirectional"
+    "unidirectional",
+    "universal"
   ],
   "bugs": {
     "url": "https://github.com/sethvincent/virtual-app/issues"

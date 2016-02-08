@@ -1,4 +1,10 @@
 # virtual-app
+<img
+  alt="virtual-app logo"
+  height="100"
+  style="max-width: 100%"
+  data-canonical-src="https://github.com/yoshuawuyts/virtual-app-logo"
+  src="https://raw.githubusercontent.com/yoshuawuyts/virtual-app-logo/master/512.png">
 
 A wrapper around [virtual-dom](https://npmjs.com/virtual-dom), [virtual-raf](https://npmjs.com/virtual-raf), & [store-emitter](https://npmjs.com/store-emitter) that provides redux-like, unidirectional state management paired with virtual-dom.
 

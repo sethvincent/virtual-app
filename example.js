@@ -4,7 +4,7 @@ var createApp = require('./index')
 var h = vdom.h
 
 /*
-* create the app passing the container element and virtual-dom
+* create the app passing in virtual-dom
 */
 var app = createApp(vdom)
 
@@ -30,6 +30,7 @@ var render = app.start(modifier, {
 
 /*
 * return the tree of your app for rendering
+* this returns a real dom tree that can be appended to your web page
 */
 var domTree = render(function (state) {
   return h('.app', [
@@ -73,5 +74,9 @@ app.store({
   type: 'title',
   title: 'awesome example'
 })
+
+/*
+* append the dom tree to the page
+*/
 
 document.body.appendChild(domTree)

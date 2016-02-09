@@ -74,13 +74,7 @@ module.exports = function createVirtualApp (vdom) {
     * })
     */
     return function render (callback) {
-      var makeRenderFunc = function makeRenderFunc (app) {
-        return function curriedRender (state) {
-          var props = xtend(state, app)
-          return callback(props)
-        }
-      }
-      app.tree = loop(initialState, makeRenderFunc(app), vdom)
+      app.tree = loop(initialState, callback, vdom)
       if (typeof window !== 'undefined') {
         app.store.on('*', function (action, state) {
           app.tree.update(state)

@@ -26,7 +26,7 @@ You could definitely use virtual-dom, virtual-raf, and store-emitter separately 
 ```js
 var extend = require('xtend')
 var vdom = require('virtual-dom')
-var createApp = require('./index')
+var createApp = require('virtual-app')
 var h = vdom.h
 
 /*
@@ -146,7 +146,7 @@ Bind an event to a component. Convenience wrapper around `app.store`.
 **Parameters**
 
 -   `action` **Object** 
--   `action.type` **String** – an identifier for the type of the action
+    -   `action.type` **String** – an identifier for the type of the action
 -   `flag` **String** – call preventDefault on event (default: true)
 
 **Examples**
@@ -193,7 +193,7 @@ Trigger an event that gets passed through the modifier function to change the st
 **Parameters**
 
 -   `action` **Object** 
--   `action.type` **String** – an identifier for the type of the action
+    -   `action.type` **String** – an identifier for the type of the action
 
 **Examples**
 

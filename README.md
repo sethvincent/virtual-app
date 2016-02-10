@@ -14,6 +14,9 @@ I keep writing essentially this module with each new project I build that uses v
 
 You could definitely use virtual-dom, virtual-raf, and store-emitter separately (and switch them out for other modules) if this doesn't fit your needs exactly.
 
+## Breaking Changes
+- 3.0.0 : virtual-app no longer appends your app to the dom for you, it returns a dom tree that you can append or turn into an html string
+
 ## Install
 
     npm install --save virtual-app
@@ -24,11 +27,12 @@ You could definitely use virtual-dom, virtual-raf, and store-emitter separately 
 var extend = require('xtend')
 var vdom = require('virtual-dom')
 var createApp = require('virtual-app')
+var h = vdom.h
 
 /*
-* create the app passing the container element and virtual-dom
+* create the app passing in virtual-dom
 */
-var app = createApp(document.body, vdom)
+var app = createApp(vdom)
 
 /*
 * The only way to modify state is to trigger an action
@@ -52,9 +56,20 @@ var render = app.start(modifier, {
 
 /*
 * return the tree of your app for rendering
+* this returns a real dom tree that can be appended to your web page
 */
-render(function (state) {
-  return app.h('h1', state.title)
+var domTree = render(function (state) {
+  return h('.app', [
+    h('h1', state.title),
+    h('label', 'Write a new title: '),
+    h('input', {
+      type: 'text',
+      placeholder: state.title,
+      oninput: function (e) {
+        app.store({ type: 'title', title: e.target.value })
+      }
+    })
+  ])
 })
 
 /*
@@ -85,7 +100,15 @@ app.store({
   type: 'title',
   title: 'awesome example'
 })
+
+/*
+* append the dom tree to the page
+*/
+
+document.body.appendChild(domTree)
 ```
+
+see also, example-server.js for a server-side rendering example
 
 ## API
 
@@ -187,7 +210,6 @@ Create the app.
 
 **Parameters**
 
--   `container` **Object** – DOM element that will act as parent element
 -   `vdom` **Object** – the full virtual-dom module returned by `require('virtual-dom')`
 
 **Examples**
@@ -195,7 +217,7 @@ Create the app.
 ```javascript
 var createVirtualApp = require('virtual-app')
 
-var app = createVirtualApp(document.body, require('virtual-dom'))
+var app = createVirtualApp(require('virtual-dom'))
 ```
 
 ### render
@@ -206,12 +228,15 @@ Render the application. This function is returned by the `app.start()` method.
 
 -   `callback` **Function** – define the virtual tree of your application and return it from this callback
 
+**Returns**
+- **Object** - a dom tree
+
 **Examples**
 
 ```javascript
 var render = app.start(modifier, { food: 'pizza' })
 
-render(function (state) {
+var domTree = render(function (state) {
   return app.h('h1', state.food)
 })
 ```

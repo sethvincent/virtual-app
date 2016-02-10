@@ -4,9 +4,9 @@ var createApp = require('./index')
 var h = vdom.h
 
 /*
-* create the app passing the container element and virtual-dom
+* create the app passing in virtual-dom
 */
-var app = createApp(document.body, vdom)
+var app = createApp(vdom)
 
 /*
 * The only way to modify state is to trigger an action
@@ -30,8 +30,9 @@ var render = app.start(modifier, {
 
 /*
 * return the tree of your app for rendering
+* this returns a real dom tree that can be appended to your web page
 */
-render(function (state) {
+var domTree = render(function (state) {
   return h('.app', [
     h('h1', state.title),
     h('label', 'Write a new title: '),
@@ -73,3 +74,9 @@ app.store({
   type: 'title',
   title: 'awesome example'
 })
+
+/*
+* append the dom tree to the page
+*/
+
+document.body.appendChild(domTree)

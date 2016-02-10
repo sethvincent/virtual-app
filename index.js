@@ -1,6 +1,7 @@
 var loop = require('virtual-raf')
 var createStore = require('store-emitter')
 var assert = require('assert')
+var xtend = require('xtend')
 
 /**
 * Create the app.
@@ -12,12 +13,10 @@ var assert = require('assert')
 *
 * var app = createVirtualApp(document.body, require('virtual-dom'))
 */
-module.exports = function createVirtualApp (container, vdom) {
-  assert.equal(typeof container, 'object', 'container must be an object')
+module.exports = function createVirtualApp (vdom) {
   assert.equal(typeof vdom, 'object', 'vdom must be an object')
 
   var app = {
-    container: container,
     vdom: vdom
   }
 
@@ -66,6 +65,7 @@ module.exports = function createVirtualApp (container, vdom) {
     * Render the application. This function is returned by the `app.start()` method.
     * @name render
     * @param {Function} callback – define the virtual tree of your application and return it from this callback
+    * @return {Object} DOM node tree
     * @example
     * var render = app.start(modifier, { food: 'pizza' })
     *
@@ -74,12 +74,13 @@ module.exports = function createVirtualApp (container, vdom) {
     * })
     */
     return function render (callback) {
-      app.tree = loop(initialState, callback.bind(app), vdom)
-      app.container.appendChild(app.tree.render())
-
-      app.store.on('*', function (action, state) {
-        app.tree.update(state)
-      })
+      app.tree = loop(initialState, callback, vdom)
+      if (typeof window !== 'undefined') {
+        app.store.on('*', function (action, state) {
+          app.tree.update(state)
+        })
+      }
+      return app.tree.render()
     }
   }
 

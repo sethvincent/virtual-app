@@ -1,6 +1,6 @@
 var extend = require('xtend')
 var vdom = require('virtual-dom')
-var createApp = require('./index')
+var createApp = require('../index')
 var h = vdom.h
 
 /*

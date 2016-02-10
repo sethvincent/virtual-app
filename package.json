@@ -6,7 +6,7 @@
   "scripts": {
     "build-docs": "documentation-readme -s 'API'",
     "test": "standard && tape test.js | tap-spec",
-    "start": "budo example.js --live"
+    "start": "budo examples/browser.js --live"
   },
   "author": "sethvincent <sethvincent@gmail.com>",
   "contributors": [
@@ -15,7 +15,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "store-emitter": "^2.0.0",
+    "store-emitter": "^2.1.0",
     "virtual-dom": "^2.1.1",
     "virtual-raf": "^3.0.0",
     "xtend": "^4.0.1"
